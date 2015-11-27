@@ -47,56 +47,56 @@
  		$(function() {
 
  			$(function() {
-    $("#rating-container").empty();
-    var i = 0;    
-    while (i < 5) {
-      i = i + 1;
-      $('#rating-container').append("<div class ='rating-circle'></div>");
-    }
-  });
+ 				$("#rating-container").empty();
+ 				var i = 0;    
+ 				while (i < 5) {
+ 					i = i + 1;
+ 					$('#rating-container').append("<div class ='rating-circle'></div>");
+ 				}
+ 			});
 
-  $('#update-max-value').click(function() {
-    $("#rating-container").empty();
-    var i = 0;
-    maxValue = $('#max-value').val();
-    while (i < maxValue) {
-      i = i + 1;
-      $('#rating-container').append("<div class ='rating-circle'></div>");
-    }
-  }); 
+ 			$('#update-max-value').click(function() {
+ 				$("#rating-container").empty();
+ 				var i = 0;
+ 				maxValue = $('#max-value').val();
+ 				while (i < maxValue) {
+ 					i = i + 1;
+ 					$('#rating-container').append("<div class ='rating-circle'></div>");
+ 				}
+ 			}); 
 
-  $('#rating-container').on('click', '.rating-circle', function() {   
-    var currentElement = $(this);
-    var parent = $('#rating-container');
+ 			$('#rating-container').on('click', '.rating-circle', function() {   
+ 				var currentElement = $(this);
+ 				var parent = $('#rating-container');
 
-    indexClick = parent.children().index(currentElement);
-    $("div.rating-circle").each(function(index, currentElement) {
-      if (indexClick >= index) {
-        $(currentElement).addClass('rating-chosen');
-      }
-    });
-  });
-  $('#rating-container').on('mouseenter', 'div.rating-circle', function() {  
-    $('div.rating-circle').removeClass('rating-chosen');
-    var currentElement = $(this);
-    var parent = $('#rating-container');
-    var indexHover = parent.children().index(currentElement);
-    $("div.rating-circle").each(function(index, currentElement) {
-      if (indexHover >= index) {
-        $(currentElement).addClass('rating-hover');
-      }
-    });
-  });
-  $('#rating-container').on('mouseleave', 'div.rating-circle', function() {    
-    $('div.rating-circle').removeClass('rating-hover');
-    $("div.rating-circle").each(function(index, currentElement) {
-      if (indexClick >= index) {
-        $(currentElement).addClass('rating-chosen');
-      }
-    });
-  });
+ 				indexClick = parent.children().index(currentElement);
+ 				$("div.rating-circle").each(function(index, currentElement) {
+ 					if (indexClick >= index) {
+ 						$(currentElement).addClass('rating-chosen');
+ 					}
+ 				});
+ 			});
+ 			$('#rating-container').on('mouseenter', 'div.rating-circle', function() {  
+ 				$('div.rating-circle').removeClass('rating-chosen');
+ 				var currentElement = $(this);
+ 				var parent = $('#rating-container');
+ 				var indexHover = parent.children().index(currentElement);
+ 				$("div.rating-circle").each(function(index, currentElement) {
+ 					if (indexHover >= index) {
+ 						$(currentElement).addClass('rating-hover');
+ 					}
+ 				});
+ 			});
+ 			$('#rating-container').on('mouseleave', 'div.rating-circle', function() {    
+ 				$('div.rating-circle').removeClass('rating-hover');
+ 				$("div.rating-circle").each(function(index, currentElement) {
+ 					if (indexClick >= index) {
+ 						$(currentElement).addClass('rating-chosen');
+ 					}
+ 				});
+ 			});
 
-});
+ 		});
 </script>
 
 </body>
