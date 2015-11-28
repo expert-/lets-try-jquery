@@ -5,3 +5,11 @@
 #inputPersons{
   margin-bottom:16px;
 }
+
+#totalAmount{
+	display:none;
+}
+#sum{
+	display:none;
+	margin:bottom:5px;
+}
