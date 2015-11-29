@@ -37,58 +37,66 @@ $(function() {
 			balance[i]= netBalance;
 		};
 
-		
-		// for (var i = 0; i < balance.length && balance[i] != 0; i++) {			
+
+		for (var i = 0; i < balance.length; i++) {			
 			
-			var lowest = Math.min.apply(Math, balance);
-			var highest = Math.max.apply(Math, balance);
-			var lowestIndex = balance.indexOf(Math.min.apply(Math, balance));
-			var highestIndex = balance.indexOf(Math.max.apply(Math, balance));
+			if (balance[i] != 0) {
 
-			if ((lowest + highest) < 0 ) {
-				lowest = lowest + highest;
+				var lowest = Math.min.apply(Math, balance);
+				var highest = Math.max.apply(Math, balance);
+				var lowestIndex = balance.indexOf(Math.min.apply(Math, balance));
+				var highestIndex = balance.indexOf(Math.max.apply(Math, balance));
 
-
-				var str1 = $('#person'+lowestIndex).val();			 
-
-				var str2 = $('#person'+highestIndex).val();
-
-				var msg = str1 + " should pay " + highest + " to " + str2;
-				transaction.push(msg);
-
-				balance[highestIndex] = 0;
-			} else if ((lowest + highest) > 0 ) {
-				highest = highest + lowest;
+				if ((lowest + highest) < 0 ) {
+					lowest = lowest + highest;
 
 
-				var str1 = $('#person'+lowestIndex).val();			 
+					var str1 = $('#person'+lowestIndex).val();			 
 
-				var str2 = $('#person'+highestIndex).val();
+					var str2 = $('#person'+highestIndex).val();
 
-				var msg = str1 + " should pay " + lowest + " to " + str2;
-				transaction.push(msg);
+					var msg = str1 + " should pay " + highest + " to " + str2;
+					transaction.push(msg);
 
-				balance[lowestIndex] = 0;
-			} else {
+					balance[highestIndex] = 0;
+					balance[lowestIndex] = lowest ;
+				} else if ((lowest + highest) > 0 ) {
+					highest = highest + lowest;
 
-				var str1 = $('#person'+lowestIndex).val();			 
 
-				var str2 = $('#person'+highestIndex).val();
+					var str1 = $('#person'+lowestIndex).val();			 
 
-				var msg = str1 + " should pay " + lowest + " to " + str2;
-				transaction.push(msg);
+					var str2 = $('#person'+highestIndex).val();
 
-				balance[lowestIndex] = 0;
-				balance[highestIndex] = 0;
+					var msg = str1 + " should pay " + Math.abs(lowest) + " to " + str2;
+					transaction.push(msg);
+
+					balance[lowestIndex] = 0;
+					balance[highestIndex] = highest ;
+				} else {
+
+					var str1 = $('#person'+lowestIndex).val();			 
+
+					var str2 = $('#person'+highestIndex).val();
+
+					var msg = str1 + " should pay " + highest + " to " + str2;
+					transaction.push(msg);
+
+					balance[lowestIndex] = 0;
+					balance[highestIndex] = 0;
+				};
 			};
+			
 
-		// };
+		};		
 
+		linebreak = document.createElement("br");
 		
 
-
-		$("#content").html(transaction[0]);
-		// $("#content").html(" lowest highest is " + lowest +"  "+highest);
+		for (var i = 0; i < transaction.length; i++) {
+			$("#content").append("<p>" + transaction[i] + "</p>");			
+		};
+		
 
 	});
 
