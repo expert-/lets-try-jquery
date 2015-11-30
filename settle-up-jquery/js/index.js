@@ -9,7 +9,7 @@ $(function() {
 			$("#names").empty();
 			var i = 0;
 			while (i < nop) {        
-				$('#names').append("<div><input type='textbox' class ='inputNames' placeholder= 'Enter Name here' id='person"+ i +"'/><input type='textbox' class ='inputAmounts' placeholder = 'enter amount he paid' id='amount"+ i +"'/></div>");
+				$('#names').append("<div><input type='textbox' class ='inputNames' placeholder= 'Enter Name here' id='person"+ i +"'/><input type='number' min='0' max='9999999' class ='inputAmounts' placeholder = 'enter amount he paid' id='amount"+ i +"'/></div>");
 				i = i + 1;
 			}
 		});
@@ -22,6 +22,7 @@ $(function() {
 		var balance = [];
 		var transaction = [];
 		var totalAmount= 0;
+		$("#content").html("");
 
 		var i = 0;
 		while (i < nop) {        
