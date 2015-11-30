@@ -9,7 +9,7 @@ $(function() {
 			$("#names").empty();
 			var i = 0;
 			while (i < nop) {        
-				$('#names').append("<div><input type='textbox' class ='inputNames' id='person"+ i +"'/><input type='textbox' class ='inputAmounts' id='amount"+ i +"'/></div>");
+				$('#names').append("<div><input type='textbox' class ='inputNames' placeholder= 'Enter Name here' id='person"+ i +"'/><input type='textbox' class ='inputAmounts' placeholder = 'enter amount he paid' id='amount"+ i +"'/></div>");
 				i = i + 1;
 			}
 		});
@@ -29,8 +29,10 @@ $(function() {
 			i = i + 1;
 		}
 		$("#totalAmount").css("display", "inline");
-		$("#totalAmount").html(" Total expense is " +totalAmount);
+		$("#totalAmount").html(" Total expense is " +totalAmount + " Rs.");
 		perPerson = totalAmount/nop;
+		$("#perPerson").html(" & per person contribution is " +perPerson+ " Rs.");
+
 
 		for (var i = 0; i < nop; i++) {			
 			var netBalance = $("#amount" + i ).val() - perPerson;
