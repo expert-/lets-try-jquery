@@ -1,4 +1,4 @@
 lets-try-jquery
 ===============
 
-just starting with jquery
+beginner to advanced, jquery related examples
